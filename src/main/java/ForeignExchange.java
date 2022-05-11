@@ -47,15 +47,15 @@ public class ForeignExchange {
         return changeTo;
     }
 
-    public static float exchange(String c_from, String c_to, float amount) {
-        ForeignExchange from = getByCurrency(c_from);
-        ForeignExchange to = getByCurrency(c_to);
+    public static float exchange(String cFrom, String cTo, float amount) {
+        ForeignExchange from = getByCurrency(cFrom);
+        ForeignExchange to = getByCurrency(cTo);
         if (from == null)
-            throw new IllegalArgumentException("currency " + c_from + " doesn't exist");
+            throw new IllegalArgumentException("currency " + cFrom + " doesn't exist");
         if (to == null)
-            throw new IllegalArgumentException("currency " + c_to + " doesn't exist");
-        float as_usd = from.exchange_to_usd(amount);
-        return to.exchange_from_usd(as_usd);
+            throw new IllegalArgumentException("currency " + cTo + " doesn't exist");
+        float asUsd = from.exchangeToUsd(amount);
+        return to.exchangeFromUsd(asUsd);
     }
 
     public static void load() throws IOException {
@@ -92,11 +92,11 @@ public class ForeignExchange {
         return Jsoup.connect("https://tradingeconomics.com/currencies").get();
     }
 
-    public float exchange_from_usd(float source_amount) {
-        return source_amount * rateConversion();
+    public float exchangeFromUsd(float sourceAmount) {
+        return sourceAmount * rateConversion();
     }
 
-    public float exchange_to_usd(float source_amount) {
+    public float exchangeToUsd(float source_amount) {
         return source_amount / rateConversion();
     }
 
