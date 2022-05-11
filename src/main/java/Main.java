@@ -7,7 +7,7 @@ import java.util.function.Supplier;
 
 
 public class Main extends BasicWindow {
-    private BasicPanel mainScreen;
+    private PanelMainScreen mainScreen;
 
     public Main() throws IOException {
         super(Constants.MAIN_WINDOW_W, Constants.MAIN_WINDOW_H);
@@ -42,8 +42,8 @@ public class Main extends BasicWindow {
         Button button = new Button(titleOn);
         button.setFont(Constants.FONT);
         button.setBounds(x, y, w, h);
-        button.setForeground(Color.cyan.darker());
-        button.setBackground(Color.orange);
+        button.setForeground(Color.black.darker());
+        button.setBackground(Color.orange.darker());
         button.addActionListener(e -> {
             CoinJPanel coinJPanel = supplier.get();
             this.add(coinJPanel);

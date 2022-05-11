@@ -10,6 +10,7 @@ public class Constants {
     public static final int TITLE_Y = 0;
     public static final int TITLE_H =100;
     public static final Font FONT = new Font("Ariel", Font.BOLD, 15);
-    public static final Font FONT1 = new Font("Ariel", Font.BOLD, 17);
+    public static final int SLEEP_THREAD=1000;
+    public static final String FILE_NAME="abc.jpeg";
 
 }
